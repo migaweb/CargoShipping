@@ -12,7 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\CargoShipping.Service\CargoShipping.Service.csproj" />
+    <ProjectReference Include="..\CargoShipping.CoreBusiness\CargoShipping.CoreBusiness.csproj" />
+    <ProjectReference Include="..\CargoShipping.Plugins.Repository.ADONET\CargoShipping.Plugins.Repository.ADONET.csproj" />
+    <ProjectReference Include="..\CargoShipping.UseCases\CargoShipping.UseCases.csproj" />
   </ItemGroup>
 
   <ItemGroup>

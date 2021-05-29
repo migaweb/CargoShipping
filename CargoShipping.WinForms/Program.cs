@@ -1,5 +1,6 @@
-using CargoShipping.Repository;
-using CargoShipping.Service;
+using CargoShipping.Plugins.Repository.ADONET;
+using CargoShipping.UseCases;
+using CargoShipping.UseCases.RepositoryPlugins;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Windows.Forms;
@@ -28,8 +29,13 @@ namespace CargoShipping.WinForms
     static void ConfigureServices(ServiceCollection services)
     {
       services.AddTransient<frmTrips>();
-      services.AddTransient<ITripSegmentService, TripSegmentService>();
+
       services.AddTransient<ITripSegmentRepository, TripSegmentRepository>();
+      services.AddTransient<IPortRepository, PortRepository>();
+
+      services.AddTransient<ISearchByTripNumberUseCase, SearchByTripNumberUseCase>();
+      services.AddTransient<IViewAllPortsUseCase, ViewAllPortsUseCase>();
+      services.AddTransient<ISearchByPortUseCase, SearchByPortUseCase>();
     }
   }
 }

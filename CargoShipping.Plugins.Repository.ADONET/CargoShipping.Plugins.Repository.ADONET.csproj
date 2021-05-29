@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CargoShipping.CoreBusiness\CargoShipping.CoreBusiness.csproj" />
+    <ProjectReference Include="..\CargoShipping.UseCases\CargoShipping.UseCases.csproj" />
+  </ItemGroup>
+
+
+</Project>

@@ -1,5 +1,7 @@
-﻿using CargoShipping.Service;
-using CargoShipping.Service.ViewModels;
+﻿
+using CargoShipping.CoreBusiness;
+using CargoShipping.UseCases;
+using CargoShipping.UseCases.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -8,19 +10,41 @@ namespace CargoShipping.WinForms
 {
   public partial class frmTrips : Form
     {
-    private ITripSegmentService _tripSegmentService;
+    private readonly ISearchByTripNumberUseCase searchByTripNumberUseCase;
+    private readonly IViewAllPortsUseCase viewAllPortsUseCase;
+    private readonly ISearchByPortUseCase searchByPortUseCase;
 
-    public frmTrips(ITripSegmentService tripSegmentService)
+    public frmTrips(
+        ISearchByTripNumberUseCase getTripSegmentByTripNumberUseCase,
+        IViewAllPortsUseCase viewAllPortsUseCase,
+        ISearchByPortUseCase searchByPortUseCase)
     {
       InitializeComponent();
 
-      _tripSegmentService = tripSegmentService;
+      this.searchByTripNumberUseCase = getTripSegmentByTripNumberUseCase;
+      this.viewAllPortsUseCase = viewAllPortsUseCase;
+      this.searchByPortUseCase = searchByPortUseCase;
+    }
+
+    private void frmTrips_Load(object sender, EventArgs e)
+    {
+      listPorts.ValueMember = "PortId";
+      listPorts.DisplayMember = "Name";
+
+      var ports = viewAllPortsUseCase.Execute();
+      listPorts.DataSource = ports;
     }
 
     private void btnSearchByTripNumber_Click(object sender, EventArgs e)
     {
-      var segments = _tripSegmentService.GetTripSegmentsByTripNumber(txtTripNumber.Text);
+      var segments = searchByTripNumberUseCase.Execute(txtTripNumber.Text);
       gvTrips.DataSource = segments;
+    }
+
+    private void btnSearchByPort_Click(object sender, EventArgs e)
+    {
+      var trips = searchByPortUseCase.Execute(((Port)listPorts.SelectedItem).PortId);
+      gvTrips.DataSource = trips;
     }
 
     private void gvTrips_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -59,6 +83,7 @@ namespace CargoShipping.WinForms
         }
       }
     }
+
 
   }
 }

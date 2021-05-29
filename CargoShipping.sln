@@ -10,11 +10,21 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SQL", "SQL", "{5E4ED560-9AB
 		SQL\db-script.sql = SQL\db-script.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.Domain", "CargoShipping.Domain\CargoShipping.Domain.csproj", "{817CAF8D-9DEB-4198-89F8-311DE8713A65}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CargoShipping.Domain", "CargoShipping.Domain\CargoShipping.Domain.csproj", "{817CAF8D-9DEB-4198-89F8-311DE8713A65}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.Repository", "CargoShipping.Repository\CargoShipping.Repository.csproj", "{507E003A-F616-4925-8189-B508BBA3458D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CargoShipping.Repository", "CargoShipping.Repository\CargoShipping.Repository.csproj", "{507E003A-F616-4925-8189-B508BBA3458D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.Service", "CargoShipping.Service\CargoShipping.Service.csproj", "{648FA518-636D-4B51-9AAC-B74B452E9468}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CargoShipping.Service", "CargoShipping.Service\CargoShipping.Service.csproj", "{648FA518-636D-4B51-9AAC-B74B452E9468}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.CoreBusiness", "CargoShipping.CoreBusiness\CargoShipping.CoreBusiness.csproj", "{01D9527D-2178-4913-81F6-88F06189D253}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.UseCases", "CargoShipping.UseCases\CargoShipping.UseCases.csproj", "{882FBFDF-A666-4143-A4D9-F1E761001C8A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugins", "Plugins", "{9E4D9B47-B4AF-4280-92DF-2389FEE8A5E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CargoShipping.Plugins.Repository.ADONET", "CargoShipping.Plugins.Repository.ADONET\CargoShipping.Plugins.Repository.ADONET.csproj", "{F49AA683-DCFC-47C0-B006-F80D16A1DCE1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LayeredArchitecture", "LayeredArchitecture", "{D5B70762-735C-4992-85B3-B437420262CE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,9 +48,27 @@ Global
 		{648FA518-636D-4B51-9AAC-B74B452E9468}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{648FA518-636D-4B51-9AAC-B74B452E9468}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{648FA518-636D-4B51-9AAC-B74B452E9468}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01D9527D-2178-4913-81F6-88F06189D253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01D9527D-2178-4913-81F6-88F06189D253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01D9527D-2178-4913-81F6-88F06189D253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01D9527D-2178-4913-81F6-88F06189D253}.Release|Any CPU.Build.0 = Release|Any CPU
+		{882FBFDF-A666-4143-A4D9-F1E761001C8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{882FBFDF-A666-4143-A4D9-F1E761001C8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{882FBFDF-A666-4143-A4D9-F1E761001C8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{882FBFDF-A666-4143-A4D9-F1E761001C8A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F49AA683-DCFC-47C0-B006-F80D16A1DCE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F49AA683-DCFC-47C0-B006-F80D16A1DCE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F49AA683-DCFC-47C0-B006-F80D16A1DCE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F49AA683-DCFC-47C0-B006-F80D16A1DCE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{817CAF8D-9DEB-4198-89F8-311DE8713A65} = {D5B70762-735C-4992-85B3-B437420262CE}
+		{507E003A-F616-4925-8189-B508BBA3458D} = {D5B70762-735C-4992-85B3-B437420262CE}
+		{648FA518-636D-4B51-9AAC-B74B452E9468} = {D5B70762-735C-4992-85B3-B437420262CE}
+		{F49AA683-DCFC-47C0-B006-F80D16A1DCE1} = {9E4D9B47-B4AF-4280-92DF-2389FEE8A5E3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B49629D0-48C8-4BC3-8D1B-9F031DAB6C02}
